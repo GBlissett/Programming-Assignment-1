@@ -3,8 +3,8 @@
 //Encryption:
 int main(void)
 {
-   int k, i, letters[25], over, orig_letters[25];
-   char encrypt_letter, orig_letter;
+   int k, i, letters[25], over, orig_letters[25], counter = 0;;
+   char encrypt_letter, orig_letter, text[1024], text_letter;
    
    printf("Enter offset of rotation cipher: \n");
    scanf("%d", &k);
@@ -29,6 +29,24 @@ int main(void)
        printf("%c now %c\n", orig_letter, encrypt_letter);       
    }
    
+ 
+   printf("Enter text to encrypt below: (NB make sure all text is in capital letters)\n");
+   while (counter < 1025)
+   {
+     scanf("%c", text_letter);
+     text[counter] = text_letter;
+     
+     counter++;
+     
+     printf("&d text counter is %c", counter, text_letter);
+   }
+   
+   if (counter == 1024)
+   {
+       printf("Maximum message length reached");
+   }
+   
 }
+
 
 //Decryption:
