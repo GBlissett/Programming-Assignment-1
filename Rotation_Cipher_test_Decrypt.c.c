@@ -31,5 +31,40 @@ int main(void)
        
        printf("%c now %c\n", orig_letter, encrypt_letter);       
    }
+   
+   input = fopen("encrypted.txt", "r");
+	
+	
+	while(!feof(input))
+	{
+	     fgets(encrypt_text, size, (FILE *)input); //stores the chars in the text form the input file "origional.txt" into array origional_text 
+
+         size = (int)strlen(encrypt_text)+ 1;
+         
+	     printf("Old: %s", encrypt_text);
+        
+        //printf("Size = %d", size)
+        
+        for (I = 0; I < (size - 1); I++)
+        {
+             ////printf("%c", origional_text[4]);
+             for (i = 0; i < 26; i++)
+            {             
+             if (encrypt_text[I] == letters[i])
+             {
+                 origional_text[I] = orig_letters[i]; //tests for match between a letter input and origional alphabet then assigns the new letter (as according to the above rotating cipher code)
+             }
+             if (origional_text[I] == ' ') 
+            {
+                 encrypt_text[I] = ' ';
+             }
+            }
+        }
+        
+        output = fopen("origional.txt", "w");
+        
+        printf("\nNew: %s ",origional_text);
+        fprintf(output, "%s\n", origional_text);
+	}
   
 }
