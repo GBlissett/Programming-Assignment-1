@@ -1,11 +1,12 @@
-#include <stdio.h>
+#include <stdio.h>#include <string.h>
 
 //Encryption:
 int main(void)
 {
-   int k, i, letters[25], over, orig_letters[25], size = 500;
-   char encrypt_letter, orig_letter, origional_text[size];
+   int k, i, I, letters[25], over, orig_letters[25], size = 500;
+   char encrypt_letter, orig_letter, origional_text[size], encrypt_text[size];
    FILE *input;
+   FILE *output;
    
    printf("Enter offset of rotation cipher: \n");
    scanf("%d", &k);
@@ -33,16 +34,39 @@ int main(void)
 	input = fopen("origional.txt", "r");
 	
 	while(!feof(input))
-	{
-	    char c;
-	    fscanf(input, "%c", &c);	
-	    
-	    fgets(origional_text, size, (FILE *)input);
+	{	      
+	    fgets(origional_text, size, (FILE *)input); //stores the chars in the text form the input file "origional.txt" into array origional_text 
+
+        printf("Old: %s", origional_text);
+        
+        //gets (origional_text);
+        //size = (int)strlen(origional_text) + 1;
+
+        
+        for (I = 0; I < size; I++)
+        {
+             ////printf("%c", origional_text[4]);
+             for (i = 0; i < 26; i++)
+            {             
+             if (origional_text[I] == orig_letters[i])
+             {
+                 encrypt_text[I] = letters[i]; //tests for match between a letter input and origional alphabet then assigns the new letter (as according to the above rotating cipher code)
+             }
+             if (origional_text[I] == ' ') 
+            {
+                 encrypt_text[I] = ' ';
+             }
+            }
+        }
+        
+        output = fopen("encrypted.txt", "w");
+        
+        printf("\nNew: ");
+        fprintf(output, "%s\n", encrypt_text);
+    
 	  
 	    //printf("%c", c);
 	}
-
-
 }
-//Decryption:
-}
+
+//Decipher
