@@ -3,8 +3,8 @@
 //Encryption:
 int main(void)
 {
-   int k, i, letters[25], over, orig_letters[25], counter = 0, I, w;
-   char encrypt_letter, orig_letter, text[1024], orig_word[1024];
+   int k, i, letters[25], over, orig_letters[25], size = 500;
+   char encrypt_letter, orig_letter, origional_text[size];
    FILE *input;
    
    printf("Enter offset of rotation cipher: \n");
@@ -35,12 +35,14 @@ int main(void)
 	while(!feof(input))
 	{
 	    char c;
-	    fscanf(input, "%c", &c);
+	    fscanf(input, "%c", &c);	
 	    
-	    printf("%c", c);
+	    fgets(origional_text, size, (FILE *)input);
+	  
+	    //printf("%c", c);
 	}
 
-}
 
+}
 //Decryption:
 }
