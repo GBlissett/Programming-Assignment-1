@@ -48,8 +48,9 @@ int main ()
             printf("    a: Rotation cipher\n");
             printf("    b: Substitution cipher\n\n");
             printf("Selection: "); 
+            getchar();
             scanf("%c", &cipher);
-            Encryp_alg_mess_txt_key(cipher);
+            Decryp_alg_ciph_txt_key(cipher);
             break;
         
         case 'C':
@@ -130,7 +131,7 @@ void Decryp_alg_ciph_txt_key(char cipher)
 
 void Decryp_ciph_txt_no_key(char cipher)
 {
-     printf ("Decryption with a key selected");
+     printf ("Decryption without a key selected");
     
 }
 
@@ -198,17 +199,13 @@ void Rotation_cipher_Encrypt(void)
         
         printf("\nNew: %s ",encrypt_text);
         fprintf(output, "%s\n", encrypt_text);
+        break;
 	}
 	
+
 }
 
 void Rotation_cipher_Decrypt(void)
-{
-    #include <stdio.h>
-#include <string.h>
-
-//Decryption:
-int main(void)
 {
    int k, i, I, letters[25], under, orig_letters[25], size = 500;
    char encrypt_letter, orig_letter, origional_text[size], encrypt_text[size];
@@ -271,10 +268,11 @@ int main(void)
         
         printf("\nNew: %s ",origional_text);
         fprintf(output, "%s\n", origional_text);
+        break;
 	}
   
 }
-}
+
 
 void Substitution_cipher(void)
 {
