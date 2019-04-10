@@ -237,7 +237,6 @@ void Rotation_cipher_Decrypt(void)
    
    input = fopen("encrypted.txt", "r");
 	
-	
 	while(!feof(input))
 	{
 	     fgets(encrypt_text, size, (FILE *)input); //stores the chars in the text form the input file "origional.txt" into array origional_text 
@@ -257,9 +256,9 @@ void Rotation_cipher_Decrypt(void)
              {
                  origional_text[I] = orig_letters[i]; //tests for match between a letter input and origional alphabet then assigns the new letter (as according to the above rotating cipher code)
              }
-             if (origional_text[I] == ' ') 
+             if (encrypt_text[I] == ' ') 
             {
-                 encrypt_text[I] = ' ';
+                 origional_text[I] = ' ';
              }
             }
         }
