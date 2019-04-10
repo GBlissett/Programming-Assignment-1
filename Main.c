@@ -182,17 +182,24 @@ void Rotation_cipher_Encrypt(void)
         for (I = 0; I < (size - 1); I++)
         {
              ////printf("%c", origional_text[4]);
-             for (i = 0; i < 26; i++)
-            {             
-             if (origional_text[I] == orig_letters[i])
+             if ((origional_text[I] >= 65) && (origional_text[I] <= 90))
              {
-                 encrypt_text[I] = letters[i]; //tests for match between a letter input and origional alphabet then assigns the new letter (as according to the above rotating cipher code)
-             }
-             if (origional_text[I] == ' ') 
+                 for (i = 0; i < 26; i++)
+                {             
+                     if (origional_text[I] == orig_letters[i])
+                     {
+                         encrypt_text[I] = letters[i]; //tests for match between a letter input and origional alphabet then assigns the new letter (as according to the above rotating cipher code)
+                     }
+                }
+            }
+            if (origional_text[I] == ' ') 
             {
                  encrypt_text[I] = ' ';
              }
-            }
+             if ((origional_text[I] >= 33) && (origional_text[I] <= 64))
+             {
+                 encrypt_text[I] = origional_text[I];
+             }
         }
         
         output = fopen("encrypted.txt", "w");
@@ -247,21 +254,30 @@ void Rotation_cipher_Decrypt(void)
         
         //printf("Size = %d", size)
         
+        
         for (I = 0; I < (size - 1); I++)
         {
              ////printf("%c", origional_text[4]);
-             for (i = 0; i < 26; i++)
-            {             
-             if (encrypt_text[I] == letters[i])
+             if ((encrypt_text[I] >= 65) && (encrypt_text[I] <= 90))
              {
-                 origional_text[I] = orig_letters[i]; //tests for match between a letter input and origional alphabet then assigns the new letter (as according to the above rotating cipher code)
-             }
-             if (encrypt_text[I] == ' ') 
+                 for (i = 0; i < 26; i++)
+                {             
+                     if (encrypt_text[I] == letters[i])
+                     {
+                         origional_text[I] = orig_letters[i]; //tests for match between a letter input and origional alphabet then assigns the new letter (as according to the above rotating cipher code)
+                     }
+                }
+            }
+            if (encrypt_text[I] == ' ') 
             {
                  origional_text[I] = ' ';
              }
-            }
+             if ((encrypt_text[I] >= 33) && (encrypt_text[I] <= 64))
+             {
+                 origional_text[I] = encrypt_text[I];
+             }
         }
+        
         
         output = fopen("origional.txt", "w");
         
