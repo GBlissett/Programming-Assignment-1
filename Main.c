@@ -5,7 +5,8 @@
 int alph = 26; 
 void Encryp_alg_mess_txt_key(char cipher); //prototype for a function that perfoms encryption given an algorithm, message text, and key
 void Decryp_alg_ciph_txt_key(char cipher); //prototype for a function that performs decryption given an algorithm, cipher text, and key
-void Decryp_ciph_txt_no_key(char cipher); // prototype for a function that performs decryption given cipher text and some assumptions of its contents without the key
+void Decryp_ciph_txt_no_key_Rotation(void); // prototype for a function that performs decryption given cipher text and some assumptions of its contents without the key using Rotation cipher
+void Decryp_ciph_txt_no_key_Substitution(void); // prototype for a function that performs decryption given cipher text and some assumptions of its contents without the key using substitution cipher
 void Rotation_cipher_Encrypt(void);
 void Rotation_cipher_Decrypt(void);
 void Substitution_cipher_Encrypt(void);
@@ -46,10 +47,8 @@ int main ()
             break;
             
         case 'B':       
-            printf("Case B Selected");
-            
-            printf("Case A Selected\n\n");
-        
+            printf("Case B Selected\n\n");
+                
             printf("Select type of cipher: \n");
             printf("    a: Rotation cipher\n");
             printf("    b: Substitution cipher\n\n");
@@ -60,7 +59,28 @@ int main ()
             break;
         
         case 'C':
-            printf("Case C Selected");
+            printf("Case C Selected\n\n");
+            
+            printf("Select type of cipher: \n");
+            printf("    a: Rotation cipher\n");
+            printf("    b: Substitution cipher\n\n");
+            printf("Selection: "); 
+            getchar();
+            scanf("%c", &cipher);
+            
+            if (cipher == 'a')
+            {
+                Decryp_ciph_txt_no_key_Rotation();
+            }
+            else if (cipher == 'b')
+            {
+                Decryp_ciph_txt_no_key_Substitution();
+            }
+            else 
+            {
+                printf("Make possible selection");
+                return 0;
+            }
             break;
         }
     }
@@ -75,7 +95,6 @@ int main ()
 
 void Encryp_alg_mess_txt_key(char cipher)
 {
-   
     int int_cipher;
     
     int_cipher = (int)cipher;
@@ -101,7 +120,6 @@ void Encryp_alg_mess_txt_key(char cipher)
         printf("Please make possible selection");
         //return 0;
     }
-    
 }
 
 void Decryp_alg_ciph_txt_key(char cipher)
@@ -133,12 +151,6 @@ void Decryp_alg_ciph_txt_key(char cipher)
         //return 0;
     }
 
-} 
-
-void Decryp_ciph_txt_no_key(char cipher)
-{
-     printf ("Decryption without a key selected");
-    
 }
 
 void Rotation_cipher_Encrypt(void)
@@ -261,6 +273,17 @@ void Substitution_cipher_Decrypt(void)
    }
    
     Decryption(orig_letters, letters);
+}
+
+void Decryp_ciph_txt_no_key_Rotation(void)
+{
+     printf ("Rotation Decryption without a key selected");
+    
+}
+
+void Decryp_ciph_txt_no_key_Substitution(void)
+{
+    printf ("Substitution Decryption without a key selected");
 }
 
 void Encryption(int letters[alph], int orig_letters[alph])
