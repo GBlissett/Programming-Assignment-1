@@ -218,8 +218,8 @@ void Substitution_cipher_Encrypt(void)
    for (i = 0; i < 26; i++)
    {
        printf("Enter encrypted substitutaion value for %c: ", orig_letters[i]);
-       scanf("%c", &ASCII);
        getchar();
+       scanf("%c", &ASCII);
        
        ASCII = (int)ASCII;
        //printf("%d", ASCII);
@@ -228,9 +228,9 @@ void Substitution_cipher_Encrypt(void)
        encrypt_letter = (char)letters[i]; //converts the ASCII code number to character 
        orig_letter = (char)orig_letters[i]; //converts the ASCII code number to character 
        
-       printf("%c now %c\n", orig_letter, encrypt_letter);
+       printf("%c now %c \n", orig_letter, encrypt_letter);
    }
-
+   
     Encryption(orig_letters, letters);
 }
 
@@ -247,8 +247,8 @@ void Substitution_cipher_Decrypt(void)
    for (i = 0; i < 26; i++)
    {
        printf("Enter encrypted substitutaion value for %c: ", orig_letters[i]);
-       scanf("%c", &ASCII);
        getchar();
+       scanf("%c", &ASCII);
        
        ASCII = (int)ASCII;
        //printf("%d", ASCII);
@@ -257,7 +257,7 @@ void Substitution_cipher_Decrypt(void)
        encrypt_letter = (char)letters[i]; //converts the ASCII code number to character 
        orig_letter = (char)orig_letters[i]; //converts the ASCII code number to character 
        
-       printf("%c now %c\n", orig_letter, encrypt_letter);
+       printf("%c now %c \n", orig_letter, encrypt_letter);
    }
    
     Decryption(orig_letters, letters);
